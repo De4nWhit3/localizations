@@ -39,10 +39,26 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            // Returns 'he'
+            Text(AppLocalizations.of(context)!.pronoun('male')),
+            // Returns 'she'
+            Text(AppLocalizations.of(context)!.pronoun('female')),
+            // Returns 'they'
+            Text(AppLocalizations.of(context)!.pronoun('other')),
             // Add the following code
+            Text(AppLocalizations.of(context)!.hello('John')),
+            Text(AppLocalizations.of(context)!.nWombats(0)),
+            // Returns '1 wombat'
+            Text(AppLocalizations.of(context)!.nWombats(1)),
+            // Returns '5 wombats'
+            Text(AppLocalizations.of(context)!.nWombats(5)),
+            Text(
+              AppLocalizations.of(context)!.helloEscapedWorld,
+              style: const TextStyle(color: Colors.red),
+            ),
             Localizations.override(
               context: context,
-              locale: const Locale('af'),
+              locale: const Locale.fromSubtags(languageCode: 'es'),
               // Using a Builder to get the correct BuildContext.
               // Alternatively, you can create a new widget and Localizations.override
               // will pass the updated BuildContext to the new widget.
